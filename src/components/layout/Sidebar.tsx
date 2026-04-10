@@ -24,13 +24,13 @@ const Sidebar: React.FC = () => {
       </div>
 
       {/* User Info */}
-      {/* <div className="sb-user">
+      <div className="sb-user">
         <div className="uav">{CURRENT_USER.initials}</div>
         <div>
           <div className="un">{CURRENT_USER.name}</div>
           <div className="ur">{CURRENT_USER.role}</div>
         </div>
-      </div> */}
+      </div>
 
       {/* Navigation Items */}
       <div className="sb-nav">
