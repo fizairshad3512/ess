@@ -19,7 +19,7 @@ const PayslipPage: React.FC = () => {
   return (
     <div className="pb">
       {/* Header */}
-      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
+      <div className="page-header-row" style={{ alignItems: 'flex-start' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <div>
             <div style={{ fontSize: '17px', fontWeight: '700', color: 'var(--ink)', letterSpacing: '-0.3px' }}>Payroll &amp; Compensation</div>
@@ -90,6 +90,7 @@ const PayslipPage: React.FC = () => {
           justifyContent: 'space-between',
           marginBottom: '20px',
         }}
+        className="pay-hero-inner"
       >
         {/* Decorative circles */}
         <div
@@ -156,7 +157,7 @@ const PayslipPage: React.FC = () => {
       </div>
 
       {/* KPI Cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px', marginBottom: '20px' }}>
+      <div className="grid-4col" style={{ marginBottom: '20px' }}>
         {/* Basic Salary */}
         <div className="card" style={{ padding: '18px 20px' }}>
           <div
@@ -303,7 +304,7 @@ const PayslipPage: React.FC = () => {
       </div>
 
       {/* Two-column layout */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: '14px' }}>
+      <div className="grid-pay-layout">
         {/* LEFT: Salary Breakdown */}
         <div className="card">
           <div className="ch">

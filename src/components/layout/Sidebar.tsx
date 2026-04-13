@@ -5,14 +5,14 @@ import { setPage } from '../../features/navigation/navigationSlice';
 
 const Sidebar: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { activePage } = useAppSelector((state) => state.navigation);
+  const { activePage, sidebarOpen } = useAppSelector((state) => state.navigation);
 
   const handleNavClick = (itemId: string, itemLabel: string) => {
     dispatch(setPage({ page: itemId as any, title: itemLabel }));
   };
 
   return (
-    <aside className="side">
+    <aside className={`side ${sidebarOpen ? 'open' : ''}`}>
       {/* Logo */}
       <div className="sb-logo">
         <div className="logo-sq">

@@ -34,7 +34,7 @@ const LeavePage: React.FC = () => {
       </div>
 
       {/* Leave Balance Cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }}>
+      <div className="grid-4col">
         {LEAVE_BALANCES.map((balance) => {
           const percentage = (balance.used / balance.total) * 100;
           const colors = leaveColorMap[balance.color];
@@ -83,7 +83,7 @@ const LeavePage: React.FC = () => {
             <div style={{ fontSize: '11.5px', color: 'var(--ink3)', marginTop: '2px' }}>Click any type to submit a new request</div>
           </div>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 0 }}>
+        <div className="grid-5col">
           {REQUEST_TYPES.map((type, idx) => (
             <div
               key={type.label}
@@ -119,6 +119,7 @@ const LeavePage: React.FC = () => {
           <div className="ct">Request History</div>
           <span style={{ fontSize: '11.5px', color: 'var(--ink3)' }}>{LEAVE_REQUESTS.length} total</span>
         </div>
+        <div className="table-scroll">
         <table className="tbl">
           <thead><tr><th>Type</th><th>Date Applied</th><th>Duration</th><th>Status</th><th>Action</th></tr></thead>
           <tbody>
@@ -148,6 +149,7 @@ const LeavePage: React.FC = () => {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );

@@ -1,13 +1,16 @@
 import Sidebar from './Sidebar';
 import Topbar from './Topbar';
-import { useAppSelector } from '../../app/hooks';
+import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { closeSidebar } from '../../features/navigation/navigationSlice';
 
 interface AppLayoutProps {
   children: React.ReactNode;
 }
 
 const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
+  const dispatch = useAppDispatch();
   const { mainColor, softColor, bgColor } = useAppSelector((state) => state.theme);
+  const sidebarOpen = useAppSelector((state) => state.navigation.sidebarOpen);
 
   const themeVars = {
     '--green': mainColor,
@@ -20,6 +23,11 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
 
   return (
     <div className="app" style={themeVars}>
+      {/* Mobile overlay */}
+      {sidebarOpen && (
+        <div className="sidebar-overlay" onClick={() => dispatch(closeSidebar())} />
+      )}
+
       {/* Sidebar */}
       <Sidebar />
 

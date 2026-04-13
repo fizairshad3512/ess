@@ -46,7 +46,7 @@ const AttendancePage: React.FC = () => {
             {months.map((m) => <option key={m} value={m}>{m}</option>)}
           </select>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 0 }}>
+        <div className="grid-5col-insights">
           {insights.map((ins, idx) => (
             <div key={idx} style={{
               padding: '16px 18px',
@@ -72,6 +72,7 @@ const AttendancePage: React.FC = () => {
 
       {/* Attendance Table Card */}
       <div className="card">
+        <div className="table-scroll">
         <table style={{ width: '100%', borderCollapse: 'collapse' }}>
           <thead>
             <tr style={{ borderBottom: '1px solid var(--border)' }}>
@@ -118,6 +119,7 @@ const AttendancePage: React.FC = () => {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );

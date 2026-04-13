@@ -6,7 +6,7 @@ const ProfilePage: React.FC = () => {
     <div className="pb">
       {/* Hero Card */}
       <div className="card" style={{ padding: '24px 28px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+        <div className="profile-hero-inner">
           {/* Avatar */}
           <div
             style={{
@@ -40,9 +40,9 @@ const ProfilePage: React.FC = () => {
           </div>
 
           {/* Stats */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0', borderLeft: '1px solid var(--border)', paddingLeft: '28px' }}>
+          <div className="profile-stats">
             {/* Years */}
-            <div style={{ textAlign: 'center', padding: '0 28px', borderRight: '1px solid var(--border)' }}>
+            <div className="profile-stat-item">
               <p style={{ fontSize: '22px', fontWeight: '700', letterSpacing: '-0.5px', color: 'var(--ink)' }}>
                 {CURRENT_USER.years}
               </p>
@@ -50,7 +50,7 @@ const ProfilePage: React.FC = () => {
             </div>
 
             {/* Attendance */}
-            <div style={{ textAlign: 'center', padding: '0 28px', borderRight: '1px solid var(--border)' }}>
+            <div className="profile-stat-item">
               <p style={{ fontSize: '22px', fontWeight: '700', letterSpacing: '-0.5px', color: 'var(--green)' }}>
                 {CURRENT_USER.attendancePercent}
               </p>
@@ -58,7 +58,7 @@ const ProfilePage: React.FC = () => {
             </div>
 
             {/* Performance */}
-            <div style={{ textAlign: 'center', padding: '0 0 0 28px' }}>
+            <div className="profile-stat-item">
               <p style={{ fontSize: '22px', fontWeight: '700', letterSpacing: '-0.5px', color: 'var(--ink)' }}>
                 {CURRENT_USER.performancePercent}
               </p>

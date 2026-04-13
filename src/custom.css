@@ -263,8 +263,169 @@ textarea { font-family: inherit; }
 @keyframes fadePost { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
 .animate-fade-post { animation: fadePost 0.3s ease; }
 
+/* ── HAMBURGER (hidden on desktop) ── */
+.hamburger-btn { display: none; background: none; border: none; padding: 4px; cursor: pointer; color: var(--ink); }
+
+/* ── SIDEBAR OVERLAY (mobile) ── */
+.sidebar-overlay { display: none; }
+
 /* ── COLOR PICKER ── */
 .color-panel { position: absolute; top: 42px; right: 0; background: white; border: 1px solid var(--border); border-radius: 14px; padding: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); z-index: 999; width: 220px; }
 .sw { width: 36px; height: 36px; border-radius: 50%; cursor: pointer; border: none; transition: all 0.15s; }
 .sw:hover { transform: scale(1.1); }
 .sw.active { outline: 2.5px solid var(--green); outline-offset: 2px; }
+
+/* ── RESPONSIVE HELPER CLASSES (used by pages) ── */
+.grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.grid-home { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.grid-4col { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.grid-5col { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; }
+.grid-5col-insights { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; }
+.grid-pay-layout { display: grid; grid-template-columns: 1fr 300px; gap: 14px; }
+.flex-col-gap { display: flex; flex-direction: column; gap: 14px; }
+.profile-hero-inner { display: flex; align-items: center; gap: 20px; }
+.profile-stats { display: flex; align-items: center; gap: 0; border-left: 1px solid var(--border); padding-left: 28px; }
+.profile-stat-item { text-align: center; padding: 0 28px; border-right: 1px solid var(--border); }
+.profile-stat-item:last-child { border-right: none; padding-right: 0; }
+.greet-inner { display: flex; align-items: center; justify-content: space-between; }
+.pay-hero-inner { display: flex; align-items: center; justify-content: space-between; }
+.page-header-row { display: flex; align-items: center; justify-content: space-between; }
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* ══════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   ══════════════════════════════════════════ */
+
+/* ── TABLET (≤1024px) ── */
+@media (max-width: 1024px) {
+  .side { width: 180px; }
+  .pb { padding: 16px; gap: 12px; }
+  .greet { padding: 18px 20px; }
+  .g-name { font-size: 17px; }
+  .grid-5col-insights { grid-template-columns: repeat(3, 1fr); }
+  .grid-5col-insights > *:nth-child(n+4) { border-top: 1px solid var(--border); }
+  .grid-5col { grid-template-columns: repeat(3, 1fr); }
+  .grid-4col { grid-template-columns: repeat(2, 1fr); }
+  .grid-pay-layout { grid-template-columns: 1fr; }
+  .profile-stat-item { padding: 0 18px; }
+  .att-mini-stats { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+/* ── SMALL TABLET / LARGE PHONE (≤768px) ── */
+@media (max-width: 768px) {
+  /* Sidebar: off-canvas on mobile */
+  .side {
+    position: fixed;
+    left: -260px;
+    top: 0;
+    bottom: 0;
+    width: 240px;
+    z-index: 1000;
+    transition: left 0.25s ease;
+    box-shadow: none;
+  }
+  .side.open {
+    left: 0;
+    box-shadow: 4px 0 24px rgba(0,0,0,0.12);
+  }
+
+  /* Overlay */
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 999;
+  }
+
+  /* Hamburger visible */
+  .hamburger-btn { display: flex; align-items: center; justify-content: center; }
+
+  /* Topbar */
+  .topbar { padding: 0 14px; height: 48px; }
+  .tb-srch { display: none; }
+  .tb-dt { display: none; }
+
+  /* Page body */
+  .pb { padding: 14px; gap: 10px; }
+
+  /* Grids collapse */
+  .row2, .grid-2col, .grid-home { grid-template-columns: 1fr; }
+  .row3 { grid-template-columns: 1fr 1fr; }
+  .grid-4col { grid-template-columns: 1fr 1fr; }
+  .grid-5col { grid-template-columns: repeat(3, 1fr); }
+  .grid-5col-insights { grid-template-columns: repeat(2, 1fr); }
+  .grid-pay-layout { grid-template-columns: 1fr; }
+  .doc-grid { grid-template-columns: 1fr 1fr; }
+  .qa-row { grid-template-columns: repeat(2, 1fr); }
+
+  /* Greeting card stacks */
+  .greet { padding: 16px; }
+  .greet-inner { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .g-stats { width: 100%; justify-content: space-between; }
+  .g-stat { flex: 1; min-width: 0; }
+  .g-name { font-size: 16px; }
+
+  /* Punch card */
+  .punch-card { flex-direction: column; gap: 12px; align-items: flex-start; }
+  .pc-right { width: 100%; justify-content: space-between; }
+
+  /* Profile hero stacks */
+  .profile-hero-inner { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .profile-stats { border-left: none; padding-left: 0; padding-top: 12px; border-top: 1px solid var(--border); width: 100%; justify-content: space-around; }
+  .profile-stat-item { padding: 0 12px; }
+
+  /* Pay hero */
+  .pay-hero-inner { flex-direction: column; align-items: flex-start; gap: 14px; }
+
+  /* Salary strip */
+  .salary-strip { flex-direction: column; align-items: flex-start; gap: 10px; }
+
+  /* Page header */
+  .page-header-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+
+  /* Leave row */
+  .leave-row { grid-template-columns: 1fr 1fr; }
+
+  /* Attendance week */
+  .att-week { flex-wrap: wrap; }
+  .aw { min-width: calc(14.28% - 5px); }
+
+  /* Tables: horizontal scroll */
+  .tbl { min-width: 600px; }
+}
+
+/* ── PHONE (≤480px) ── */
+@media (max-width: 480px) {
+  .pb { padding: 12px; gap: 8px; }
+  .topbar { padding: 0 10px; }
+
+  /* All grids go single column */
+  .row2, .row3, .grid-2col, .grid-home, .grid-4col { grid-template-columns: 1fr; }
+  .grid-5col, .grid-5col-insights { grid-template-columns: 1fr 1fr; }
+  .doc-grid { grid-template-columns: 1fr; }
+  .qa-row { grid-template-columns: 1fr 1fr; }
+  .leave-row { grid-template-columns: 1fr; }
+  .att-mini-stats { grid-template-columns: 1fr 1fr; }
+
+  /* Greeting */
+  .greet { padding: 14px; }
+  .g-name { font-size: 15px; }
+  .g-btns { flex-direction: column; }
+  .g-stats { flex-direction: column; gap: 6px; }
+  .g-stat { min-width: 0; }
+
+  /* Attendance week: 7-day row wraps to 2 rows */
+  .att-week { gap: 4px; }
+  .aw { min-width: calc(25% - 4px); flex: 0 0 calc(25% - 4px); }
+
+  /* Profile stats */
+  .profile-stats { flex-wrap: wrap; gap: 8px; }
+  .profile-stat-item { flex: 1; min-width: 60px; padding: 8px; border-right: none; border-bottom: none; }
+
+  /* Team feed max height */
+  .card { overflow: hidden; }
+
+  /* Timesheet nums */
+  .ts-nums { grid-template-columns: 1fr 1fr 1fr; }
+}

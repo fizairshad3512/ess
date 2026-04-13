@@ -28,36 +28,38 @@ const HomePage = () => {
     <div className="pb">
       {/* Greeting */}
       <div className="greet">
-        <div>
-          <div className="g-name">Good Morning, Fiza 👋</div>
-          <div className="g-sub">You checked in at 09:39 AM yesterday · 3 missing punches · Timesheet 86% complete</div>
-          <div className="g-btns">
-            <button className="bp" onClick={toggleCheckIn}>
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 1V11M1 6H11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-              </svg>
-              {isCheckedIn ? 'Check Out' : 'Check In'}
-            </button>
-            <button className="bs-btn">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 1V11M1 6H11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-              </svg>
-              Apply Request
-            </button>
+        <div className="greet-inner">
+          <div>
+            <div className="g-name">Good Morning, Fiza 👋</div>
+            <div className="g-sub">You checked in at 09:39 AM yesterday · 3 missing punches · Timesheet 86% complete</div>
+            <div className="g-btns">
+              <button className="bp" onClick={toggleCheckIn}>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 1V11M1 6H11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+                {isCheckedIn ? 'Check Out' : 'Check In'}
+              </button>
+              <button className="bs-btn">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 1V11M1 6H11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+                Apply Request
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="g-stats">
-          <div className="g-stat"><div className="gsv g">8h 24m</div><div className="gsl">Avg today</div></div>
-          <div className="g-stat"><div className="gsv">22</div><div className="gsl">Days present</div></div>
-          <div className="g-stat"><div className="gsv">91%</div><div className="gsl">Performance</div></div>
+          <div className="g-stats">
+            <div className="g-stat"><div className="gsv g">8h 24m</div><div className="gsl">Avg today</div></div>
+            <div className="g-stat"><div className="gsv">22</div><div className="gsl">Days present</div></div>
+            <div className="g-stat"><div className="gsv">91%</div><div className="gsl">Performance</div></div>
+          </div>
         </div>
       </div>
 
       {/* Two column grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+      <div className="grid-home">
 
         {/* LEFT: Attendance + Timesheet + Performance */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+        <div className="flex-col-gap">
 
           {/* Attendance Card */}
           <div className="card">

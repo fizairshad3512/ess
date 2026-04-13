@@ -20,7 +20,7 @@ const DocumentsPage: React.FC = () => {
   return (
     <div className="pb">
       {/* Header Row */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
+      <div className="page-header-row" style={{ marginBottom: '14px' }}>
         <div style={{ fontSize: '17px', fontWeight: '700', color: 'var(--ink)', letterSpacing: '-0.3px' }}>My Documents</div>
         <button className="bp" style={{ display: 'flex', alignItems: 'center', gap: '7px', fontSize: '12.5px', padding: '9px 18px' }}>
           <PlusIcon />
@@ -33,7 +33,7 @@ const DocumentsPage: React.FC = () => {
         <div style={{ padding: '14px 18px', fontSize: '13px', fontWeight: '500', color: 'var(--ink)', borderBottom: '1px solid var(--border)' }}>
           All Documents
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', padding: '16px' }}>
+        <div className="doc-grid" style={{ gap: '12px', padding: '16px' }}>
           {DOCUMENTS.map((doc) => (
             <div
               key={doc.name}

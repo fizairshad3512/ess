@@ -1,16 +1,32 @@
 import { useState } from 'react';
 import ColorPicker from '../../features/theme/ColorPicker';
-import { useAppSelector } from '../../app/hooks';
+import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { toggleSidebar } from '../../features/navigation/navigationSlice';
 
 const Topbar: React.FC = () => {
+  const dispatch = useAppDispatch();
   const { pageTitle } = useAppSelector((state) => state.navigation);
   const [showColorPicker, setShowColorPicker] = useState(false);
 
   return (
     <div className="topbar">
-      <div>
-        <div className="tb-pg">{pageTitle}</div>
-        <div className="tb-dt">Monday, 16 March 2026 · 11:00 AM</div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        {/* Hamburger menu - visible only on mobile */}
+        <button
+          className="hamburger-btn"
+          onClick={() => dispatch(toggleSidebar())}
+          aria-label="Toggle menu"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" style={{ width: '18px', height: '18px' }}>
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+        <div>
+          <div className="tb-pg">{pageTitle}</div>
+          <div className="tb-dt">Monday, 16 March 2026 · 11:00 AM</div>
+        </div>
       </div>
       <div className="tb-r" style={{ position: 'relative' }}>
         {/* Color Picker Dropdown */}
